@@ -46,16 +46,16 @@ Work through the orientation content. It covers the same hardware/OS/software ma
 
 Open the CyberFoundations City map (introduced in Week 1, Lesson 6). Identify which district corresponds to Module 1 — Digital Infrastructure & CLI.
 
-**District name:** Welcome Center
+**District name:** Foundry District
 
 ```
-Welcome center
+Foundry District
 ```
 
 **Why this district fits this week's topics (1–2 sentences):**
 
 ```
-This district is known as the welcome center because it matches where we are right now in the course which is getting use to and comfortable with the computer system.  
+This district fits this weeks topic due to it corresponding with foundational information such as digital infastructure, the basics of inside of a computer such as the important hardware and common software/OS.
 ```
 
 ---
@@ -168,7 +168,7 @@ Welcome center-- it all starts with hardware/OS/software
 **3. Of the three layers (hardware, OS, software), which one do you think is hardest to secure, and why?**
 
 ```
-Hardware/ software you can inject malicious code right into it or send it remotely.
+Of the three I would say software is the hardest to protect. What keeps the security tight is patch updates/ enhancements but those happen after a new threat is learned about or detected. Not to mention you first must making the code/ patch, testing it and then deploy hoping it works in the prod enviornment. It also is succeptible to people (users not updating when needed or downloading black market software etc)
 ```
 
 ---
