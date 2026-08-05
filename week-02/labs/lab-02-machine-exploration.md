@@ -152,7 +152,7 @@ Take a screenshot of Task Manager or Activity Monitor showing your CPU/memory us
 In your own words, explain how the real numbers you found in Part A (OS version, RAM, storage) relate to what you just watched live in Part B. Which number describes hardware, and which describes the OS?
 
 ```
-Makes since because my computer runs great it showed it did not have a lot of apps running taking of space or energy on the computer and it shows! 
+Makes since because my computer runs great it showed it did not have a lot of apps running taking of space or energy on the computer and it shows! Hardware is shown by the CPU and memory (RAM) and the OS are the applications running. 
 ```
 
 ---
