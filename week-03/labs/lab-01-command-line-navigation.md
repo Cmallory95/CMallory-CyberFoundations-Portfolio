@@ -44,7 +44,7 @@ pwd
 Output (your current path):
 
 ```
-(paste the output here)
+/home/morgan
 ```
 
 ### Step 2 — Look Around
@@ -137,7 +137,10 @@ cat shift-log.txt
 File contents:
 
 ```
-Shift- Log Foundry District
+Shift Log - Foundry District
+06:00 - All systems nominal.
+14:00 - Routine inspection complete.
+22:00 - Handoff to night shift.
 ```
 
 ### Step 5 — Move Back Up
@@ -190,7 +193,7 @@ Gets the current working location
 Look at the path `pwd` (or `Get-Location`) printed in Part A, Step 1. Is it written in Windows style or Linux style, and how do you know? Reference at least one specific detail from Lesson 2 (a drive letter, a slash direction, or the presence of a ~) to support your answer.
 
 ```
-Linux-- it did not use lettered drives like Windows style would use it also says home instead of a litter drive or users
+Linux-- it did not use lettered drives like Windows style would use. It also says home instead of a litter drive. Instead of users, it had a direct name.
 ```
 
 ### Analysis Question 2
@@ -206,7 +209,7 @@ To ensure you are in the right place. You don't want to make unneeded or unautho
 In Part C, you looked up a command you'd never used before, instead of guessing or skipping it. Explain why this habit — asking the terminal for help instead of memorizing everything in advance — matters for a real career in IT or cybersecurity.
 
 ```
-No one memorizes every command. With switching back and forth between systems and them having different prompts it can be easy to get confused or forget so the help command is a useful tool.
+No one memorizes every command. With switching back and forth between systems and them having different prompts it can be easy to get confused or forget so the help command is a useful tool. This can also help you confirm what you are doing first and avoid mistakes. 
 ```
 
 ### Analysis Question 4
@@ -261,10 +264,6 @@ If you'd like to add one, take a screenshot showing your commands and their outp
 4. Click on the uploaded image's filename to open it — you'll see the image itself displayed on the page.
 5. Right-click directly on the image and choose **Copy image address** (Chrome/Edge) or **Copy Image Link** (Firefox).
 6. Come back to this file, open the pencil (edit) icon, and add the embed near the bottom of Part B, pasting your copied link in place of the placeholder:
-
-```markdown
-![CLI Simulator session screenshot](paste your copied image link here)
-```
 
 **If right-click doesn't show that option** (e.g., on some trackpads or tablets): click the small download-arrow icon in the top-right of the image preview instead, then copy the URL from your browser's address bar.
 
