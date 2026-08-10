@@ -1,8 +1,8 @@
 # Week 3 Lab 02 — Two Shells, Same Job: Incident Response Edition (CLI Simulator)
 
-**Student Name:**
+**Student Name:** Chantel Mallory
 
-**Date Completed:**
+**Date Completed:** 8/5/26
 
 **Module:** 1 — Digital Infrastructure & CLI | **Week:** 3  
 **Submission Path:** `week-03/labs/lab-02-two-shells-same-job.md`
@@ -84,9 +84,7 @@ ls
 Output:
 
 ```
-Mode             Name
-d-----           archive
--a----           READ.txt
+READ.txt archive
 
 A README and an archive folder
 ```
@@ -98,9 +96,7 @@ Choose a folder from the list and use the change directory command to move insid
 Command you ran:
 
 ```
-Set-Location archive/incident-42 
-
-Get-Location
+cd archive
 ```
 
 **⚠️ Stop and check:** run your location-check command *immediately* after moving, to confirm you arrived safely.
@@ -114,7 +110,7 @@ pwd
 Output:
 
 ```
-/home/agent/archive/incident-42
+/home/agent/archive$
 ```
 
 ### Step A4 — Inspect the Incident Log File
@@ -124,18 +120,15 @@ Find a text file in this directory and print its contents to the screen to peek 
 Command you ran:
 
 ```
-Ls
-
-Get-Content access-log.txt
+cd (go home)
+ls (double check location)
+cat README.txt
 ```
 
 Output:
 
 ```
-Mode            Name
--a---           access-log.txt
-
-03:16 access denied, then an alert raised-- worth documenting
+Storeroom shared volume, mounted read and write. A flagged access attempt was logged under archive slash incident-42 - take a look.
 ```
 
 ### Step A5 — Create Your Investigation Note
@@ -145,7 +138,7 @@ Investigators document as they go. Create a new, empty file right here called `i
 Command you ran:
 
 ```
-New-Item investigation-notes.txt
+touch investigation-notes.txt
 ```
 
 ### Step A6 — Back Up Your Note
@@ -155,13 +148,13 @@ Before you go any further, make a backup copy of `investigation-notes.txt` calle
 Command you ran:
 
 ```
-Copy-Item investigation-notes.txt investigation-notes-backup.txt
+cp investigation-notes.txt investigation-notes-backup.txt
 ```
 
 Confirm both files now exist:
 
 ```
-Backed up on both sides now
+It says in yellow confirmation "Backed up before anything else can happen to it" however next button is not clickable to run code to confirm file exists
 ```
 
 ---
@@ -183,7 +176,7 @@ pwd
 Output:
 
 ```
-You are in your home directory
+/home/agent
 ```
 
 ### Step B2 — Look Around the Directory
@@ -199,7 +192,10 @@ ls
 Output:
 
 ```
-README.me intake logs maintenance
+Mode       Name
+d -----    archive
+-a ----    README.txt
+
 ```
 
 ### Step B3 — Move Deeper into the Storeroom
@@ -209,7 +205,7 @@ Move into the **exact same folder** you chose in Part A.
 Command you ran:
 
 ```
-cd logs
+Set-Location archive/incident-42
 ```
 
 **⚠️ Stop and check:** run your location-check command *immediately* after moving, to confirm you arrived safely.
@@ -217,13 +213,13 @@ cd logs
 Command you ran:
 
 ```
-pwd
+Get-Location.
 ```
 
 Output:
 
 ```
-Moving, then checking- that is the habit that matters
+/home/agentg/archive/incident-42
 ```
 
 ### Step B4 — Inspect the Incident Log File
@@ -233,14 +229,16 @@ Print the contents of the **exact same text file** you read in Part A.
 Command you ran:
 
 ```
-cd logs
-cat/shift-log.txt
+Get-Content access-log.txt
 ```
 
 Output:
 
 ```
-Found it-- that is the Foundry district log
+Access Log - Incident 42
+03:14 - Unknown login attempt, storeroom bay 3.
+03:16 - Access denied.
+03:17 - Alert raised to on-call.
 ```
 
 ### Step B5 — Create Your Investigation Note
@@ -250,7 +248,7 @@ Create the **same-named** empty file, `investigation-notes.txt`, right here on t
 Command you ran:
 
 ```
-It got stuck on question 6. I typed grep, it informed me it was the grep pattern file but would not advance on from there
+New-Item investigation-notes.txt
 ```
 
 ### Step B6 — Back Up Your Note
@@ -260,13 +258,17 @@ Make a backup copy of `investigation-notes.txt` called `investigation-notes-back
 Command you ran:
 
 ```
-unable to advance
+Copy-Item investigation-notes.txt investigation-notes-backup.txt
 ```
 
 Confirm both files now exist:
 
 ```
-unable to advance
+ls
+Mode      Name
+-a-       access-log.txt
+-a ----   investigation-notes-backup.txt
+-a --     investigation-notes.txt
 ```
 
 ---
@@ -283,7 +285,7 @@ Fill in the exact commands you typed for each task. Do not use generic names —
 | 2. Look around | ls | ls |
 | 3. Move into a folder | mv | Move-Item |
 | 4. Peek inside a file | cat | Get-Content  |
-| 5. Create + back up your note | Unsure | Unsure |
+| 5. Create + back up your note | cp | Copy-Item |
 
 **⚠️ Stop and check:** did you use the exact same folder and file for both your bash and PowerShell passes? If they don't match, your comparison table below won't make sense — go back to Part B and re-target the same location before continuing.
 
@@ -293,6 +295,8 @@ Describe at least one difference in how the two shells presented information to 
 
 ```
 To be be completely honest they both look the same to me the biggest difference is the length of the prompts but bother look about the same as far as display and visualization of information. 
+
+The biggest difference to me is that Powershell uses more wording and Bash is more short handed. 
 ```
 
 ---
@@ -312,7 +316,7 @@ I noticed matching file names and folders. Folders had the same files and conten
 Which command pair (e.g., pwd vs. Get-Location, ls vs. dir, cat vs. type) felt most different to you? Give a specific reason why one felt more comfortable or intuitive than the other. Minimum 3 sentences.
 
 ```
-Overall to me just having to do more typing in powershell felt different. Instead of mv it was Move-Item and it was case sensitive, that tripped me up a few times. I did notice I used pwd in both environments, I did not use Get-Location. I prefer shorter typing stances
+Overall to me just having to do more typing in powershell felt different. Instead of mv it was Move-Item and it was case sensitive, that tripped me up a few times. I did notice I used pwd and ls in both environments, I did not use Get-Location. I prefer shorter typing stances
 ```
 
 ### Analysis Question 3 — Applying Lesson 2 Differences
