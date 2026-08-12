@@ -217,7 +217,7 @@ No one memorizes every command. With switching back and forth between systems an
 Compare this lab to Lesson 1's filing-room analogy (the pile of paper vs. the labeled cabinets). Now that you've actually navigated a file-system tree yourself instead of just reading about one, what — if anything — surprised you or felt different from what you expected?
 
 ```
-No everything aligns. I like Bash/ Windows because it is more flexible and forgiving while Linux/ Powershell are more sticter and require deeper attention to detail. both systems look the same as far as navigation and text output
+No everything aligns. I like Bash/ Linux because it is more flexible and forgiving while Windows/ Powershell are more stricter and require deeper attention to detail. both systems look the same as far as navigation and text output
 ```
 
 ---
