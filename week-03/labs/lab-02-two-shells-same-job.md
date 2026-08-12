@@ -122,7 +122,9 @@ Command you ran:
 ```
 cd (go home)
 ls (double check location)
-cat README.txt
+cd archive/incident-42
+ls
+cat access-log.txt
 ```
 
 Output:
@@ -283,7 +285,7 @@ Fill in the exact commands you typed for each task. Do not use generic names —
 | --- | --- | --- |
 | 1. Where am I? | pwd | pwd |
 | 2. Look around | ls | ls |
-| 3. Move into a folder | mv | Move-Item |
+| 3. Move into a folder | cd | Set-Location |
 | 4. Peek inside a file | cat | Get-Content  |
 | 5. Create + back up your note | cp | Copy-Item |
 
@@ -308,7 +310,7 @@ The biggest difference to me is that Powershell uses more wording and Bash is mo
 How do you know that the underlying file system tree was identical across both passes, even though you used completely different commands and operating systems? Point to concrete evidence from your terminal outputs (e.g., matching folder names, file content, or sizes). Minimum 3 sentences.
 
 ```
-I noticed matching file names and folders. Folders had the same files and contents in them no matter what file system I used the only difference were the prompts.
+I noticed matching file names and folders. Folders had the same files and contents in them no matter what file system I used the only difference were the prompts.Moving in and out of directories/ folders/ files and resetting back home was also the same minus using some different prompts. 
 ```
 
 ### Analysis Question 2 — Syntax Preferences
