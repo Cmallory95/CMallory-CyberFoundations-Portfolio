@@ -36,7 +36,9 @@ Before filtering anything, look at what you're working with: run a plain listing
 What you observed (rough count + the naming families you spotted):
 
 ```
-(type your observations here)
+door-access.log east-access.log inv-april.txt inv-february.txt inv-
+january.txt inv-march-supplement.txt inv-march.txt meeting-recap.txt
+notes-march-meeting.txt supply-list.txt west-access.log
 ```
 
 ### Step 2 — Match One Family With a Pattern
@@ -46,13 +48,17 @@ The slip's first request: **every invoice file.** Write a pattern that matches a
 Command you ran (your ls + pattern):
 
 ```
-(paste the command here)
+ls inv*
 ```
 
 Output (the matched files):
 
 ```
-(paste the output here)
+inv-april.txt
+inv-february.txt
+inv-january.txt
+inv-march-supplement.txt
+inv-march.txt
 ```
 
 ### Step 3 — Get Precise
@@ -62,13 +68,15 @@ The slip gets pickier: **only the invoices from a single month** (the scenario p
 Command you ran:
 
 ```
-(paste the command here)
+ls inv*march*
 ```
 
 Output (the matched files — and nothing extra):
 
 ```
-(paste the output here)
+inv-march-supplement.txt
+inv-march.txt
+notes-march-meeting.txt
 ```
 
 ### Step 4 — Act on a Pattern
@@ -78,7 +86,11 @@ Create a folder named `evidence` and copy your Step 3 matches into it with a sin
 Commands you ran (mkdir, cp with pattern, confirming ls):
 
 ```
-(paste the commands here)
+mkdir evidence
+ls
+cp inv-march* evidence
+cd evidence
+ls
 ```
 
 ---
@@ -92,13 +104,15 @@ The slip's second request: the scenario's access log records badge events, and s
 Command you ran:
 
 ```
-(paste the command here)
+grep -i denied door-access.log
 ```
 
 Output (every matching line):
 
 ```
-(paste the output here)
+08:12 DENIED badge 2214 east door - retry OK
+12:40 DENIED visitor badge front desk
+02:47 DENIED badge 4471 storeroom door
 ```
 
 ### Step 2 — Find the Line That Matters
@@ -108,7 +122,9 @@ Most denied entries are routine — mistyped badges at reasonable hours. One is 
 The suspicious line, and why you flagged it:
 
 ```
-(paste the line and type your reasoning here)
+02:47 DENIED badge 4471 storeroom door
+
+I assume the time is AM due to it looking like the system writes time in 24 hours and it was also to the store room. Lastly the person did not retry like the bade 2214 east door- retry ok so to me it shows they knew they didn't have access or should not have access.
 ```
 
 ### Step 3 — Widen the Sweep
@@ -118,13 +134,16 @@ One log is never the whole story. Re-run your search across **every** log file i
 Command you ran:
 
 ```
-(paste the command here)
+grep -i denied door-access.log
 ```
 
 Which files contained matches:
 
 ```
-(type the filenames here)
+door-access.log:08:12 DENIED badge 2214 east door - retry OK
+door-access.log:12:40 DENIED visitor badge front desk
+door-access.log:02:47 DENIED badge 4471 storeroom door
+west-access.log:13:22 DENIED badge 9911 west door - unknown badge
 ```
 
 ---
@@ -140,13 +159,13 @@ Search every text file for the term the scenario panel gives you, in one command
 Command you ran:
 
 ```
-(paste the command here)
+grep -i badge-code *.txt 
 ```
 
 The file you found:
 
 ```
-(type the filename here)
+meeting-recap.txt
 ```
 
 ### Step 2 — Check Who Can Touch It
@@ -156,13 +175,15 @@ Before you walk away — this is the Week 4 reflex now — run the long listing 
 Command you ran and its output:
 
 ```
-(paste the command and output here)
+ls -l
+
+-rw-rw-rw-
 ```
 
 Your read of the situation:
 
 ```
-(type your assessment here — who can currently touch this file?)
+Owner, group and other can also read and write the file
 ```
 
 ### Step 3 — Lock It Down
@@ -172,13 +193,17 @@ Fix the file's permissions so only its owner can read and write it — Gatekeepe
 Commands you ran (including both ls -l checks):
 
 ```
-(paste the commands here)
+ls -l
+
+chmod go-rw meeting-recap.txt
 ```
 
 The file's permission string BEFORE and AFTER:
 
 ```
-(paste both permission strings here)
+Before:-rw-rw-rw-
+
+After: -rw-------
 ```
 
 ### Step 4 — Capture Your Investigation Evidence (REQUIRED screenshot)
@@ -192,54 +217,54 @@ Take one screenshot of your simulator session showing your Part C sequence — t
 **Analysis Question 1.** In Part A you tested every pattern with `ls` before letting `cp` act on it. Explain what could go wrong if you skipped straight to acting — and why the stakes get higher when the command attached to the pattern is `rm`. *(Minimum 2 sentences.)*
 
 ```
-(your answer here — minimum 2 sentences)
+You can end up copying the file into the wrong directory or folder that is why you should always check and see what is there first and then check to make sure your change went through. The stakes are even higher when using rm because you can end up removing the wrong file and once you remove a file it is deleted and cannot be gotten back because Linux does not have a 'Recycle bin"
 ```
 
 **Analysis Question 2.** Your Part B search returned several routine matches and one suspicious one. In a real security job, why is "reducing six hundred lines to three worth reading" often more valuable than any single answer the search returns? *(Minimum 2 sentences.)*
 
 ```
-(your answer here — minimum 2 sentences)
+Singling out the information you need allows you to really tune in and see exactly what's going on. By looking at the needed information separately you can decipher the exact changes that need to be made which may not always be obvious. 
 ```
 
 **Analysis Question 3.** Part C found a sensitive file by its *contents*, then audited its *permissions*. Explain why neither skill alone would have been enough — what does each half of the workflow catch that the other misses? *(Minimum 3 sentences.)*
 
 ```
-(your answer here — minimum 3 sentences)
+Finding a sensitive file by its contents helps because names can lie. Seeing its contents are not enough however which is where auditing permissions comes into play. It is good security practice to check the permissions of a file because you should not assume it has the correct permissions just because of its name or contents. Both pieces together help you to confirm what information is in a file and also ensure its secure and safe.
 ```
 
 **Analysis Question 4.** The Archive had dozens of files; real systems have millions. Which habit from this lab do you think scales up the furthest into professional work, and why? *(Minimum 2 sentences.)*
 
 ```
-(your answer here — minimum 2 sentences)
+I believe "reducing six hundred lines to three worth reading" will be the most scaling skill because as the question said real systems have a lot of data and knowing how to sort through that will always help you. 
 ```
 
 ---
 
 ## Submission Checklist
 
-- [ ] Archive surveyed and naming families noted (Part A, Step 1)
+- [x] Archive surveyed and naming families noted (Part A, Step 1)
 
-- [ ] Full invoice family matched with a tested pattern (Part A, Step 2)
+- [x] Full invoice family matched with a tested pattern (Part A, Step 2)
 
-- [ ] Precise single-month pattern built and verified (Part A, Step 3)
+- [x] Precise single-month pattern built and verified (Part A, Step 3)
 
-- [ ] Matches copied to `evidence/` with one pattern-driven `cp` (Part A, Step 4)
+- [x] Matches copied to `evidence/` with one pattern-driven `cp` (Part A, Step 4)
 
-- [ ] Log searched for denied entries with correct case handling (Part B, Step 1)
+- [x] Log searched for denied entries with correct case handling (Part B, Step 1)
 
-- [ ] Suspicious line identified with reasoning (Part B, Step 2)
+- [x] Suspicious line identified with reasoning (Part B, Step 2)
 
-- [ ] Multi-file sweep run in one command (Part B, Step 3)
+- [x] Multi-file sweep run in one command (Part B, Step 3)
 
-- [ ] Hidden file found by contents (Part C, Step 1)
+- [x] Hidden file found by contents (Part C, Step 1)
 
-- [ ] Its permissions checked and assessed (Part C, Step 2)
+- [x] Its permissions checked and assessed (Part C, Step 2)
 
-- [ ] Locked down to owner-only with before/after checks (Part C, Step 3)
+- [x] Locked down to owner-only with before/after checks (Part C, Step 3)
 
 - [ ] **REQUIRED:** `cli-search-investigation.png` uploaded to `assets/screenshots/week-04/` and embedded below (Part C, Step 4)
 
-- [ ] All four Analysis Questions answered (minimum sentence counts met)
+- [x] All four Analysis Questions answered (minimum sentence counts met)
 
 - [ ] This file is committed to your portfolio repo at `week-04/labs/lab-02-wildcards-and-searching.md`
 
