@@ -376,7 +376,7 @@ I pinged the name relay-station-old.grid.local to double check what you said and
 
 To my knowledge this would show an incorrect name or misspelling correct? Not a DNS error? I can re-run the ping via name or IP address if you'd like
 
-PS I honestly would be more straight forward and stern wrong is wrong I am not here to sugar coat lol #respectfully
+PS I honestly would be more straightforward and stern wrong is wrong I am not here to sugar coat lol #respectfully
 ```
 
 ### Step 4 — One Control Test Before You Write It Up
@@ -432,7 +432,7 @@ One or two sentences. Name the specific thing that is not working. Be precise ab
 Your statement of what is broken:
 
 ```
-(type your statement here — one or two sentences)
+foundry-archive.grid.local is not the correct name, and it will not ping. The name is more than likely incorrect.
 ```
 
 ### Step 2 — What Evidence Proves It
@@ -442,7 +442,7 @@ List the specific tests you ran and what each one returned. This is where your P
 Your evidence, test by test:
 
 ```
-(list your tests and their results here)
+I pinged both the name and ip address and both results show that the ping could not find what I asked. I pinged a server that I knew was up and the search was successful, thus meaning the issue is not with DNS. When doing traceroute it shows that nothing past the first hop was successful. 
 ```
 
 ### Step 3 — What You Ruled Out, and How
@@ -454,7 +454,9 @@ Ruling out possibilities is what separates a finding from a guess. A reader who 
 What you ruled out and the evidence that ruled it out:
 
 ```
-(list what you ruled out and how here)
+I mainly ruled out that the issue was not with DNS-- I could ping another machine/ server
+
+I also found out the name was incorrect because I could not ping via name or IP address. 
 ```
 
 ### Step 4 — What Should Happen Next
@@ -464,7 +466,7 @@ One or two sentences. Based on your finding, who or what needs to be looked at, 
 Your recommended next step:
 
 ```
-(type your recommendation here — one or two sentences)
+This should be escalated to whoever can fix the name of the file and ensure the ip address is correct. 
 ```
 
 ---
@@ -474,66 +476,66 @@ Your recommended next step:
 **Analysis Question 1.** In Part B you pinged the target by name and then by IP. Explain why running *both* is necessary — describe what a person would wrongly conclude if they had run only the by-name test and stopped there. *(Minimum 3 sentences.)*
 
 ```
-(your answer here — minimum 3 sentences)
+Running the name only leaves you open to errors. If you have a spell mistake you will get an error back name not found. This can lead someone to believe that a machine or server is not available when it is. It can also have you confused names if it is close to another file/ server name. Using the ip address to follow up helps you ensure your guesses are accurate. 
 ```
 
 **Analysis Question 2.** A name that returns "Name or service not known" and a name that resolves fine but never replies to a ping are two different failures with two different causes. Describe each one in plain English — what is actually going wrong in each case — and explain why treating them as the same problem would send a troubleshooter down the wrong path. *(Minimum 3 sentences.)*
 
 ```
-(your answer here — minimum 3 sentences)
+Name not found means the name is incorrect or ip address.  Name that resolves but has no ping means that there is an issue with the connection, that machine could be down/ crashed etc
 ```
 
 **Analysis Question 3.** Part A asked you to confirm your own address and your gateway before touching the reported problem at all — even though the ticket had nothing to do with your workstation. Defend that step to a colleague who thinks it's a waste of time on an urgent ticket. *(Minimum 3 sentences.)*
 
 ```
-(your answer here — minimum 3 sentences)
+It's always good to know where you start especially because using laptops or other devices generate two IP addresses and if the host IP address is Dynamic it will change. Confirming where you are first helps to avoid careless errors. 
 ```
 
 **Analysis Question 4.** Your colleague was confident, possibly senior, and wrong. Describe how you decided their theory was wrong, and what you think that says about how much weight confidence should carry compared to evidence in security work. Where relevant, consider what would have happened if you had simply accepted their theory and reported it upward. *(Minimum 3 sentences.)*
 
 ```
-(your answer here — minimum 3 sentences)
+I decided their theory was wrong by pinging the machine which resulted in name not found. They did not take the time to ping a reliable source and rule out mispelling or name error. Had I escalated this request it would look like I don't know how to double check things and we could have ended up changing something in DNS that was not needed. 
 ```
 
 ---
 
 ## Submission Checklist
 
-- [ ] Own address and gateway confirmed (Part A, Step 1)
+- [x] Own address and gateway confirmed (Part A, Step 1)
 
-- [ ] Gateway pinged successfully and output recorded (Part A, Step 2)
+- [x] Gateway pinged successfully and output recorded (Part A, Step 2)
 
-- [ ] Baseline reasoning stated — what a healthy baseline rules out (Part A, Step 3)
+- [x] Baseline reasoning stated — what a healthy baseline rules out (Part A, Step 3)
 
-- [ ] `relay-station.grid.local` pinged by name; resolution and packet loss both read (Part B, Steps 1–2)
+- [x] `relay-station.grid.local` pinged by name; resolution and packet loss both read (Part B, Steps 1–2)
 
-- [ ] `dig relay-station.grid.local` run; status and A record recorded (Part B, Step 3)
+- [x] `dig relay-station.grid.local` run; status and A record recorded (Part B, Step 3)
 
-- [ ] `10.20.5.30` pinged directly; output recorded (Part B, Step 4)
+- [x] `10.20.5.30` pinged directly; output recorded (Part B, Step 4)
 
-- [ ] The combined proof of the tests stated in writing (Part B, Step 5)
+- [x] The combined proof of the tests stated in writing (Part B, Step 5)
 
-- [ ] `traceroute relay-station.grid.local` run; last responding hop identified (Part C, Step 1)
+- [x] `traceroute relay-station.grid.local` run; last responding hop identified (Part C, Step 1)
 
-- [ ] `traceroute cloud-heights.grid.local` run; all hops listed in order (Part C, Step 2)
+- [x] `traceroute cloud-heights.grid.local` run; all hops listed in order (Part C, Step 2)
 
-- [ ] The two traces compared and interpreted (Part C, Step 3)
+- [x] The two traces compared and interpreted (Part C, Step 3)
 
-- [ ] `relay-station-old.grid.local` tested and its exact error recorded (Part D, Step 1)
+- [x] `relay-station-old.grid.local` tested and its exact error recorded (Part D, Step 1)
 
-- [ ] Explained why the decoy is a different kind of failure (Part D, Step 2)
+- [x] Explained why the decoy is a different kind of failure (Part D, Step 2)
 
-- [ ] Reply to the colleague drafted, grounded in evidence (Part D, Step 3)
+- [x] Reply to the colleague drafted, grounded in evidence (Part D, Step 3)
 
-- [ ] Control test run against a healthy host before escalating (Part D, Step 4)
+- [x] Control test run against a healthy host before escalating (Part D, Step 4)
 
 - [ ] **REQUIRED:** `cli-grid-outage.png` uploaded to `assets/screenshots/week-05/` and its filename recorded (Part D, Step 5)
 
-- [ ] Incident note complete — what's broken, evidence, ruled out, next step (Part E, Steps 1–4)
+- [x] Incident note complete — what's broken, evidence, ruled out, next step (Part E, Steps 1–4)
 
-- [ ] All four Analysis Questions answered (minimum sentence counts met)
+- [x] All four Analysis Questions answered (minimum sentence counts met)
 
-- [ ] This file is committed to your portfolio repo at `week-05/labs/lab-02-the-grid-outage.md`
+- [x] This file is committed to your portfolio repo at `week-05/labs/lab-02-the-grid-outage.md`
 
 ---
 
