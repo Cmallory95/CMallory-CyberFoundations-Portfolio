@@ -560,7 +560,7 @@ This lab's written answers are submitted through the **CyberFoundations Lab Port
 The screenshot filename you uploaded:
 
 ```
-(type the filename here, e.g. cli-grid-outage.png)
+cli-grid-outage.png
 ```
 
 Your screenshot lives in `assets/screenshots/week-05/` in your repository, alongside the rest of your Week 5 evidence. It does not need to be linked inside this worksheet.
